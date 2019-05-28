@@ -1,0 +1,31 @@
+<?php
+use Illuminate\Support\Facades\Auth;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+Route::get('/', function () {
+    return view('top');
+});
+
+Route::get('auth/login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('auth/login', 'Auth\LoginController@login');
+
+// Route::get('user/home', 'PageController@showMyComments')->middleware('auth');
+Route::get('user/{user_id}', 'PageController@showUserPage')
+    ->where([
+        'user_id' => '[0-9]+'
+    ]);
+Route::post('comment/save', 'CommentController@saveComment');
+Route::get('auth/logout', 'Auth\LoginController@logout');
+
+Route::get('auth/github', 'Auth\LoginController@redirectGithub');
+Route::get('auth/github/callback', 'Auth\LoginController@githubCallback');
