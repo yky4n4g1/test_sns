@@ -16,6 +16,6 @@ class CommentController extends Controller
         $comment->sum_likes = 0;
 
         $comment->save();
-        return redirect("user/home");
+        return redirect("/user/" . Auth::user()->id);
     }
 }
