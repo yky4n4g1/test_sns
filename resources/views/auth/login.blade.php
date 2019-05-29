@@ -12,6 +12,7 @@
         Password: <input type="password" name="password" size="30"><br>
         <button type="submit" name="action" value="send">Login!</button>
     </form>
+    <a href="/auth/github">GitHubでログイン</a>
 </body>
 
 </html>

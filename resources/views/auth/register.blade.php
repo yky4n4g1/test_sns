@@ -15,6 +15,7 @@
             {{$errors->first('password_confirmation')}} </span><br>
         <button type='submit' name="action" value="send">送信</button>
     </form>
+    <a href="auth/github">GitHubでログイン</a>
 
 </body>
 
