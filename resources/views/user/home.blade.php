@@ -21,6 +21,16 @@
 <p>コメントを投稿するとここに表示されます。</p>
 
 @endif
+@if ($errors->any())
+<div>
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+
+@endif
 
 @if (Auth::check() and Auth::user()->id == $user_id)
 

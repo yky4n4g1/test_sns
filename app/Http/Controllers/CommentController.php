@@ -10,6 +10,12 @@ class CommentController extends Controller
 {
     public function saveComment(Request $request)
     {
+        $rules = [
+            'comment' => ['required', 'max:1000']
+        ];
+
+        $validatedData = $request->validate($rules);
+
         $comment = new Comment;
         $comment->user_id = Auth::user()->id;
         $comment->comment = $request->comment;
