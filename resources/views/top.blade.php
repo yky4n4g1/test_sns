@@ -1,19 +1,7 @@
-<!DOCTYPE html>
-<html lang="ja">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-
-<body>
-    Simple SNS
-    <br>
-    <a href="auth/register">登録</a><br>
-    <a href="auth/login">ログイン</a><br>
-    <a href="auth/github">github</a>
-</body>
-
-</html>
+@extends('layouts.origin')
+@section('title', 'Top')
+@section('content')
+<p>
+    ようこそ Simple SNS へ
+</p>
+@endsection

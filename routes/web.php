@@ -1,5 +1,4 @@
 <?php
-use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +17,9 @@ Route::get('/', function () {
 
 Route::get('auth/login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('auth/login', 'Auth\LoginController@login');
+Route::get('auth/register', 'Auth\RegisterController@showRegistrationForm');
+Route::post('auth/register', 'Auth\RegisterController@register');
 
-// Route::get('user/home', 'PageController@showMyComments')->middleware('auth');
 Route::get('user/{user_id}', 'PageController@showUserPage')
     ->where([
         'user_id' => '[0-9]+'
