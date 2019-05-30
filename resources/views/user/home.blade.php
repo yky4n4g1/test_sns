@@ -14,10 +14,10 @@
         {!! nl2br(e($comment->comment)) !!}
     </p>
     <div class="comment-delete-form">
-        <form action="/comment/delete" method="POST">
+        <form action="/comment/delete" method="POST" onsubmit="return confirmation()">
             {{ csrf_field() }}
             <input type="hidden" name="id" value="{{ $comment->id }}">
-            <input type="submit" value="Delete">
+            <input type="submit" class="deleteButton" value="Delete">
         </form>
     </div>
     <div class="comment-date">
@@ -52,4 +52,12 @@
     <input type="submit" value="送信">
 </form>
 @endif
+@endsection
+
+@section('script')
+
+<script>
+    const confirmation = () => {
+        return window.confirm("削除しますか？");
+    }
 @endsection
