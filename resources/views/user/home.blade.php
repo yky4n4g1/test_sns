@@ -8,10 +8,21 @@
 
 
 @foreach ($comments as $comment)
-<hr>
-{{ $comment->comment }}<br>
-<div style="text-align:right;">
-    <p>{{ $comment->created_at }}</p>
+<div>
+    <hr>
+    <p>
+        {!! nl2br(e($comment->comment)) !!}
+    </p>
+    <div class="comment-delete-form">
+        <form action="/comment/delete" method="POST">
+            {{ csrf_field() }}
+            <input type="hidden" name="id" value="{{ $comment->id }}">
+            <input type="submit" value="Delete">
+        </form>
+    </div>
+    <div class="comment-date">
+        <p>{{ $comment->created_at }}</p>
+    </div>
 </div>
 
 @endforeach
@@ -19,6 +30,16 @@
 
 @else
 <p>コメントを投稿するとここに表示されます。</p>
+
+@endif
+@if ($errors->any())
+<div>
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
 
 @endif
 

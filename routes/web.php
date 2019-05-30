@@ -25,6 +25,7 @@ Route::get('user/{user_id}', 'PageController@showUserPage')
         'user_id' => '[0-9]+'
     ]);
 Route::post('comment/save', 'CommentController@saveComment');
+Route::post('comment/delete', 'CommentController@deleteComment');
 Route::get('auth/logout', 'Auth\LoginController@logout');
 
 Route::get('auth/github', 'Auth\LoginController@redirectGithub');
