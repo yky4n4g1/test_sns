@@ -35,6 +35,7 @@ class CommentController extends Controller
         $comment = Comment::find($request->id);
         if ($comment->user_id == Auth::user()->id) {
             $comment->delete();
+            return redirect("/user/" . Auth::user()->id);
         }
         return redirect("/user/" . Auth::user()->id);
     }
