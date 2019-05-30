@@ -18,10 +18,9 @@
                 <li><a href="/">Top</a></li>
                 <li><a href="/auth/login">Login</a></li>
                 <li><a href="/auth/register">Register</a></li>
-                @if (Auth::check())
+                @auth
                 <li><a href="/auth/logout">Logout</a></li>
-
-                @endif
+                @endauth
             </ul>
         </div>
     </nav>

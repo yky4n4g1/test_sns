@@ -11,10 +11,10 @@
 <div>
     <hr>
     <p>
-        {{ $comment->comment }}
+        {!! nl2br(e($comment->comment)) !!}
     </p>
     <div class="comment-delete-form">
-        <form action="#" method="POST">
+        <form action="/comment/delete" method="POST">
             {{ csrf_field() }}
             <input type="hidden" name="id" value="{{ $comment->id }}">
             <input type="submit" value="Delete">

@@ -14,7 +14,7 @@ class CommentController extends Controller
             'comment' => ['required', 'max:1000']
         ];
 
-        $validatedData = $request->validate($rules);
+        $request->validate($rules);
 
         $comment = new Comment;
         $comment->user_id = Auth::user()->id;
@@ -22,6 +22,20 @@ class CommentController extends Controller
         $comment->sum_likes = 0;
 
         $comment->save();
+        return redirect("/user/" . Auth::user()->id);
+    }
+
+    public function deleteComment(Request $request)
+    {
+        $rules = [
+            'id' => ['required', 'numeric']
+        ];
+        $request->validate($rules);
+
+        $comment = Comment::find($request->id);
+        if ($comment->user_id == Auth::user()->id) {
+            $comment->delete();
+        }
         return redirect("/user/" . Auth::user()->id);
     }
 }
