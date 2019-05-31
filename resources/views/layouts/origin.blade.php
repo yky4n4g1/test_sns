@@ -16,10 +16,14 @@
         <div>
             <ul>
                 <li><a href="/">Top</a></li>
+                @guest
                 <li><a href="/auth/login">Login</a></li>
                 <li><a href="/auth/register">Register</a></li>
+                @endguest
                 @auth
+                <li><a href={{ "/user/".Auth::user()->id }}>My Page</a></li>
                 <li><a href="/auth/logout">Logout</a></li>
+                <li><a href="/user/setting">User Setting</a></li>
                 @endauth
             </ul>
         </div>
