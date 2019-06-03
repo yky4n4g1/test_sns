@@ -31,6 +31,7 @@ Route::get('user/setting', function () {
     return view('user.setting');
 })->middleware('auth');
 Route::post('user/setting', 'UserController@changeUserName');
+Route::get('user/search', 'UserController@searchUser');
 
 Route::post('comment/save', 'CommentController@saveComment');
 Route::post('comment/delete', 'CommentController@deleteComment');

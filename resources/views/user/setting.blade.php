@@ -4,9 +4,10 @@
 <h1>ユーザ設定</h1>
 
 <div>
+    <p>現在の名前:{{ Auth::user()->name }}</p>
     <form action="/user/setting" method="POST">
         {{ csrf_field() }}
-        <input type="text" name="new_name" id="new_name">
+        ユーザ名の変更:<input type="text" name="new_name" id="new_name">
         <input type="submit" name="submit" value="Change">
     </form>
 </div>

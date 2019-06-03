@@ -25,6 +25,12 @@
                 <li><a href="/auth/logout">Logout</a></li>
                 <li><a href="/user/setting">User Setting</a></li>
                 @endauth
+                <li>
+                    <form action="/user/search">
+                        <input type="text" name="search_word" placeholder="ユーザを探す">
+                        <input type="submit" value="検索">
+                    </form>
+                </li>
             </ul>
         </div>
     </nav>
