@@ -13,9 +13,15 @@
 @foreach ($comments as $comment)
 <div>
     <hr>
-    <p>
-        {!! nl2br(e($comment->comment)) !!}
-    </p>
+    <div>
+        <p>
+            {!! nl2br(e($comment->comment)) !!}
+        </p>
+    </div>
+    <div>
+        <input type="button" value="like">
+    </div>
+    @if (Auth::check() and Auth::user()->id == $user_id)
     <div class="comment-delete-form">
         {{-- 削除フォーム --}}
         <form action="/comment/delete" method="POST" onsubmit="return confirmation()">
@@ -24,6 +30,7 @@
             <input type="submit" class="deleteButton" value="Delete">
         </form>
     </div>
+    @endif
     <div class="comment-date">
         <p>{{ $comment->created_at }}</p>
     </div>
