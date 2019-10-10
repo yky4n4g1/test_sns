@@ -10,6 +10,8 @@ class CommentController extends Controller
 {
     public function saveComment(Request $request)
     {
+        $this->middleware('auth');
+
         $rules = [
             'comment' => ['required', 'max:1000']
         ];
@@ -27,6 +29,8 @@ class CommentController extends Controller
 
     public function deleteComment(Request $request)
     {
+        $this->middleware('auth');
+
         $rules = [
             'id' => ['required', 'numeric']
         ];
@@ -37,6 +41,5 @@ class CommentController extends Controller
             $comment->delete();
             return redirect("/user/" . Auth::user()->id);
         }
-        return redirect("/user/" . Auth::user()->id);
     }
 }

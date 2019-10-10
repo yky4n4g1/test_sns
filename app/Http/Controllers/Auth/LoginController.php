@@ -67,6 +67,6 @@ class LoginController extends Controller
             ['password' => '']
         );
         Auth::login($user);
-        return redirect("user/" . Auth::user()->id);
+        return redirect("/user/" . Auth::user()->id);
     }
 }
